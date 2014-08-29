@@ -1,0 +1,26 @@
+---
+# tasks file for locales
+- name: make sure (some) locales are present
+  locale_gen:
+    name: "{{ item }}"
+    state: present
+  with_items: locales_present
+  when: locales_present
+  tags: [configuration, locales, locales-present]
+
+- name: make sure (some) locales are absent
+  locale_gen:
+    name: "{{ item }}"
+    state: absent
+  with_items: locales_absent
+  when: locales_absent
+  tags: [configuration, locales, locales-absent]
+
+- name: set default locale
+  template:
+    src: etc/default/locale.j2
+    dest: /etc/default/locale
+    owner: root
+    group: root
+    mode: 0644
+  tags: [configuration, locales, locales-default]

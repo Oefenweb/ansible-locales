@@ -1,0 +1,9 @@
+---
+# defaults file for locales
+locales_present:
+  - en_US.UTF-8
+
+locales_absent: []
+
+locales_default:
+  lang: en_US.UTF-8
