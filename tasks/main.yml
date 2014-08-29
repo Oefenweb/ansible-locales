@@ -24,6 +24,19 @@
   notify: update locales
   tags: [configuration, locales, locales-language-packs-absent]
 
+- name: detect locale gen file
+  stat:
+    path: "{{ locales_gen_file }}"
+  register: locales_gen_file_stats
+  tags: [configuration, locales, locales-gen-file]
+
+- name: create locale gen file
+  file:
+    path: "{{ locales_gen_file }}"
+    state: touch
+  when: not locales_gen_file_stats.stat.exists
+  tags: [configuration, locales, locales-gen-file]
+
 - name: make sure (specified) locales are present
   locale_gen:
     name: "{{ item }}"
