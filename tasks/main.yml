@@ -6,7 +6,25 @@
     state: latest
   tags: [configuration, locales, locales-install]
 
-- name: make sure (some) locales are present
+- name: install (specified) language packs
+  apt:
+    name: "{{ item }}"
+    state: latest
+  with_items: locales_language_packs_present
+  when: locales_language_packs_present
+  notify: update locales
+  tags: [configuration, locales, locales-language-packs-present]
+
+- name: remove (specified) language packs
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items: locales_language_packs_absent
+  when: locales_language_packs_absent
+  notify: update locales
+  tags: [configuration, locales, locales-language-packs-absent]
+
+- name: make sure (specified) locales are present
   locale_gen:
     name: "{{ item }}"
     state: present
@@ -14,7 +32,7 @@
   when: locales_present
   tags: [configuration, locales, locales-present]
 
-- name: make sure (some) locales are absent
+- name: make sure (specified) locales are absent
   locale_gen:
     name: "{{ item }}"
     state: absent

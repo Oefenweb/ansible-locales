@@ -3,7 +3,13 @@
 locales_present:
   - en_US.UTF-8
 
+locales_language_packs_present:
+  - language-pack-en
+  - language-pack-en-base
+
 locales_absent: []
+
+locales_language_packs_absent: []
 
 locales_default:
   lang: en_US.UTF-8
