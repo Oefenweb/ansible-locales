@@ -9,7 +9,9 @@ None
 #### Variables
 
  * `locales_present` [default: `[en_US.UTF-8]`]:
+ * `locales_language_packs_present` [default: `[language-pack-en, language-pack-en-base]`]:
  * `locales_absent` [default: `[]`]:
+ * `locales_language_packs_absent` [default: `[]`]:
  * `locales_default`:
    * `lang` [default: `[en_US.UTF-8]`]: Provides default value for LC_* variables that have not been explicitly set
    * `lc_address` [optional]: How addresses are formatted (country first or last, where zip code goes etc.)
@@ -46,7 +48,7 @@ MIT
 
 #### Author Information
 
-Mischa ter Smitten (based on work of knopki)
+Mischa ter Smitten (based on work of knopki and nickjj)
 
 #### Feedback, bug-reports, requests, ...
 
