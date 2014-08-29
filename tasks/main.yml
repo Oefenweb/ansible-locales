@@ -1,5 +1,11 @@
 ---
 # tasks file for locales
+- name: install
+  apt:
+    name: locales
+    state: latest
+  tags: [configuration, locales, locales-install]
+
 - name: make sure (some) locales are present
   locale_gen:
     name: "{{ item }}"
