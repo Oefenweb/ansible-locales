@@ -6,24 +6,6 @@
     state: latest
   tags: [configuration, locales, locales-install]
 
-- name: create locale.gen directory
-  file:
-    path: "{{ locales_gen_file | dirname }}"
-    state: directory
-    owner: root
-    group: root
-    mode: 0755
-  tags: [configuration, locales, locales-gen-directory]
-
-- name: create locale.gen file
-  file:
-    path: "{{ locales_gen_file }}"
-    state: file
-    owner: root
-    group: root
-    mode: 0644
-  tags: [configuration, locales, locales-gen-file]
-
 - name: make sure (some) locales are present
   locale_gen:
     name: "{{ item }}"
