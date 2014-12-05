@@ -1,4 +1,6 @@
-## locales [![Build Status](https://travis-ci.org/Oefenweb/ansible-locales.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-locales)
+## locales
+
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-locales.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-locales) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-locales-blue.svg)](https://galaxy.ansible.com/list#/roles/1526)
 
 Set locales on Debian-like systems.
 
