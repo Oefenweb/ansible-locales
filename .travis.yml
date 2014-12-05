@@ -33,3 +33,6 @@ script:
 
 notifications:
   email: false
+  hipchat:
+    rooms:
+      secure: 3283IupkU3MW/1hVDv+6Lbx9OMzWBHiHPW43yK3xPTT2UvcNyJWHqe8xKBNr9DEE6zGnqL4h3Nr/GL2dwBmqRUgRM0EsPGmYqi7moYRRMtA7dm6aX1RYrAdRW1ljOOQFqhnM99SmtYnFtSFYOxJcwFUbPUKAoCRzg/UYbXF2+W8=
