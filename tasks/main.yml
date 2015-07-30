@@ -1,9 +1,11 @@
----
 # tasks file for locales
+---
 - name: install
   apt:
     name: locales
     state: latest
+    update_cache: true
+    cache_valid_time: 3600
   tags: [configuration, locales, locales-install]
 
 - name: install (specified) language packs

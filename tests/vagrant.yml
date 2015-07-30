@@ -1,5 +1,5 @@
----
 # test file for locales
+---
 - hosts: all
   remote_user: vagrant
   sudo: true

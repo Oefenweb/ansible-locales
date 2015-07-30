@@ -1,5 +1,5 @@
----
 # meta file for locales
+---
 galaxy_info:
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
@@ -7,12 +7,12 @@ galaxy_info:
   license: MIT
   min_ansible_version: 1.6
   platforms:
-  - name: Ubuntu
-    versions:
-    - all
-  - name: Debian
-    versions:
-    - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
   categories:
-  - system
+    - system
 dependencies: []

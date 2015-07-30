@@ -41,7 +41,7 @@ None
 ---
 - hosts: all
   roles:
-  - locales
+    - locales
 ```
 
 #### License

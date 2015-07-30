@@ -1,4 +1,4 @@
----
 # handlers file for locales
+---
 - name: update locales
   command: dpkg-reconfigure --frontend noninteractive locales
