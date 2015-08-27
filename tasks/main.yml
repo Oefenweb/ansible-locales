@@ -13,7 +13,7 @@
     name: "{{ item }}"
     state: latest
   with_items: locales_language_packs_present
-  when: locales_language_packs_present
+  when: ansible_distribution == 'Ubuntu'
   notify: update locales
   tags: [configuration, locales, locales-language-packs-present]
 
@@ -22,7 +22,7 @@
     name: "{{ item }}"
     state: absent
   with_items: locales_language_packs_absent
-  when: locales_language_packs_absent
+  when: ansible_distribution == 'Ubuntu'
   notify: update locales
   tags: [configuration, locales, locales-language-packs-absent]
 
@@ -36,7 +36,7 @@
   file:
     path: "{{ locales_gen_file }}"
     state: touch
-  when: not locales_gen_file_stats.stat.exists
+  when: locales_gen_file_stats.stat.exists == false
   tags: [configuration, locales, locales-gen-file]
 
 - name: make sure (specified) locales are present
@@ -44,7 +44,6 @@
     name: "{{ item }}"
     state: present
   with_items: locales_present
-  when: locales_present
   tags: [configuration, locales, locales-present]
 
 - name: make sure (specified) locales are absent
@@ -52,7 +51,6 @@
     name: "{{ item }}"
     state: absent
   with_items: locales_absent
-  when: locales_absent
   tags: [configuration, locales, locales-absent]
 
 - name: set default locale
