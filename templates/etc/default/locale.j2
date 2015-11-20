@@ -1,6 +1,9 @@
 # {{ ansible_managed }}
 
 LANG="{{ locales_default.lang }}"
+{% if locales_default.language is defined %}
+LANGUAGE="{{ locales_default.language }}"
+{% endif %}
 {% if locales_default.lc_address is defined %}
 LC_ADDRESS="{{ locales_default.lc_address }}"
 {% endif %}
