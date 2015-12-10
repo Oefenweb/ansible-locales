@@ -5,7 +5,7 @@
     name: locales
     state: latest
     update_cache: true
-    cache_valid_time: 3600
+    cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
   tags: [configuration, locales, locales-install]
 
 - name: install (specified) language packs
