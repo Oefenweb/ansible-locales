@@ -1,6 +1,6 @@
 ## locales
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-locales.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-locales) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-locales-blue.svg)](https://galaxy.ansible.com/list#/roles/1526)
+[![Build Status](https://travis-ci.org/Oefenweb/ansible-locales.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-locales) [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-locales-blue.svg)](https://galaxy.ansible.com/tersmitten/locales)
 
 Set locales on Debian-like systems.
 
@@ -51,7 +51,7 @@ MIT
 
 #### Author Information
 
-Mischa ter Smitten (based on work of knopki and nickjj)
+Mischa ter Smitten (based on work of [knopki](https://github.com/knopki) and [nickjj](https://github.com/nickjj))
 
 #### Feedback, bug-reports, requests, ...
 

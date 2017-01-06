@@ -2,16 +2,17 @@
 ---
 - name: install
   apt:
-    name: locales
-    state: latest
+    name: "{{ item }}"
+    state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
+  with_items: "{{ locales_dependencies }}"
   tags: [configuration, locales, locales-install]
 
 - name: install (specified) language packs
   apt:
     name: "{{ item }}"
-    state: latest
+    state: "{{ apt_install_state | default('latest') }}"
   with_items: "{{ locales_language_packs_present }}"
   when: ansible_distribution == 'Ubuntu'
   notify: update locales
@@ -29,14 +30,14 @@
 - name: detect locale gen file
   stat:
     path: "{{ locales_gen_file }}"
-  register: locales_gen_file_stats
+  register: _locales_gen_file_stats
   tags: [configuration, locales, locales-gen-file]
 
 - name: create locale gen file
   file:
     path: "{{ locales_gen_file }}"
     state: touch
-  when: locales_gen_file_stats.stat.exists == false
+  when: _locales_gen_file_stats.stat.exists == false
   tags: [configuration, locales, locales-gen-file]
 
 - name: make sure (specified) locales are present
