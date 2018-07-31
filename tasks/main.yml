@@ -33,11 +33,17 @@
   register: _locales_gen_file_stats
   tags: [configuration, locales, locales-gen-file]
 
+- name: check if path exists
+  stat:
+    path: "{{ locales_gen_file }}"
+  register: _locales_gen_file_path_stats
+  tags: [configuration, locales, locales-gen-file]
+
 - name: create locale gen file
   file:
     path: "{{ locales_gen_file }}"
     state: touch
-  when: _locales_gen_file_stats.stat.exists == false
+  when: _locales_gen_file_stats.stat.exists == false and _locales_gen_file_path_stats.stat.exists
   tags: [configuration, locales, locales-gen-file]
 
 - name: make sure (specified) locales are present
