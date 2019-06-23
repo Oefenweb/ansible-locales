@@ -13,8 +13,9 @@
 
 - name: install (specified) language packs
   apt:
-    name: "{{ locales_language_packs_present }}"
+    name: "{{ item }}"
     state: "{{ apt_install_state | default('latest') }}"
+  loop: "{{ locales_language_packs_present }}"
   when: ansible_distribution == 'Ubuntu'
   notify: update locales
   tags:
