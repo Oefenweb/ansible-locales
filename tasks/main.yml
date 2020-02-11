@@ -46,7 +46,7 @@
   file:
     path: "{{ locales_gen_file }}"
     state: touch
-  when: _locales_gen_file_stats.stat.exists == false
+  when: not _locales_gen_file_stats.stat.exists
   tags:
     - configuration
     - locales
