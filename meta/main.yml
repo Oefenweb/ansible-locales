@@ -1,6 +1,7 @@
-# meta file for locales
+# meta file
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: locales
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.

@@ -1,4 +1,4 @@
-# defaults file for locales
+# defaults file
 ---
 locales_present:
   - en_US.UTF-8

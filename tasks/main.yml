@@ -1,4 +1,4 @@
-# tasks file for locales
+# tasks file
 ---
 - name: install
   apt:
