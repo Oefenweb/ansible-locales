@@ -26,6 +26,13 @@ boxes = [
     :ram => "384"
   },
   {
+    :name => "ubuntu-2204",
+    :box => "bento/ubuntu-22.04",
+    :ip => '10.0.0.15',
+    :cpu => "50",
+    :ram => "512"
+  },
+  {
     :name => "debian-8",
     :box => "bento/debian-8",
     :ip => '10.0.0.16',
