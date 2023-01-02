@@ -1,7 +1,7 @@
 # tasks file
 ---
-- name: install
-  apt:
+- name: install  # noqa args[module]
+  ansible.builtin.apt:
     name: "{{ locales_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
@@ -11,8 +11,8 @@
     - locales
     - locales-install
 
-- name: install (specified) language packs
-  apt:
+- name: install (specified) language packs  # noqa args[module]
+  ansible.builtin.apt:
     name: "{{ locales_language_packs_present }}"
     state: "{{ apt_install_state | default('latest') }}"
   when: ansible_distribution == 'Ubuntu'
@@ -23,7 +23,7 @@
     - locales-language-packs-present
 
 - name: remove (specified) language packs
-  apt:
+  ansible.builtin.apt:
     name: "{{ locales_language_packs_absent }}"
     state: absent
   when: ansible_distribution == 'Ubuntu'
@@ -34,7 +34,7 @@
     - locales-language-packs-absent
 
 - name: detect locale gen file
-  stat:
+  ansible.builtin.stat:
     path: "{{ locales_gen_file }}"
   register: _locales_gen_file_stats
   tags:
@@ -43,7 +43,7 @@
     - locales-gen-file
 
 - name: create locale gen file
-  file:
+  ansible.builtin.file:
     path: "{{ locales_gen_file }}"
     state: touch
     mode: 0644
@@ -54,7 +54,7 @@
     - locales-gen-file
 
 - name: make sure (specified) locales are present
-  locale_gen:
+  community.general.locale_gen:
     name: "{{ item }}"
     state: present
   with_items: "{{ locales_present }}"
@@ -64,7 +64,7 @@
     - locales-present
 
 - name: make sure (specified) locales are absent
-  locale_gen:
+  community.general.locale_gen:
     name: "{{ item }}"
     state: absent
   with_items: "{{ locales_absent }}"
@@ -74,7 +74,7 @@
     - locales-absent
 
 - name: set default locale
-  template:
+  ansible.builtin.template:
     src: etc/default/locale.j2
     dest: /etc/default/locale
     owner: root

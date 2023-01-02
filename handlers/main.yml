@@ -1,5 +1,5 @@
 # handlers file
 ---
 - name: update locales
-  command: >
+  ansible.builtin.command: >
     dpkg-reconfigure --frontend noninteractive locales
