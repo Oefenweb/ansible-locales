@@ -43,7 +43,7 @@ None
 ---
 - hosts: all
   roles:
-    - locales
+    - oefenweb.locales
 ```
 
 #### License
