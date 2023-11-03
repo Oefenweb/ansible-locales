@@ -1,5 +1,5 @@
 # {{ ansible_managed }}
-LANG={{ locales_default.lang }}
+LANG={{ locales_default.lang | default('en_US.UTF-8') }}
 {% if locales_default.language is defined %}
 LANGUAGE="{{ locales_default.language }}"
 {% endif %}

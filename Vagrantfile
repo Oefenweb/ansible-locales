@@ -23,7 +23,7 @@ boxes = [
     :box => "bento/ubuntu-20.04",
     :ip => '10.0.0.14',
     :cpu => "50",
-    :ram => "384"
+    :ram => "512"
   },
   {
     :name => "ubuntu-2204",
@@ -33,23 +33,23 @@ boxes = [
     :ram => "512"
   },
   {
-    :name => "debian-8",
-    :box => "bento/debian-8",
-    :ip => '10.0.0.16',
-    :cpu => "50",
-    :ram => "256"
-  },
-  {
-    :name => "debian-9",
-    :box => "bento/debian-9",
-    :ip => '10.0.0.17',
-    :cpu => "50",
-    :ram => "256"
-  },
-  {
-    :name => "debian-10",
+      :name => "debian-10",
     :box => "bento/debian-10",
     :ip => '10.0.0.18',
+    :cpu => "50",
+    :ram => "256"
+  },
+  {
+    :name => "debian-11",
+    :box => "bento/debian-11",
+    :ip => '10.0.0.19',
+    :cpu => "50",
+    :ram => "256"
+  },
+  {
+    :name => "debian-12",
+    :box => "bento/debian-12",
+    :ip => '10.0.0.20',
     :cpu => "50",
     :ram => "256"
   },
