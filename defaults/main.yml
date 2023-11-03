@@ -11,5 +11,4 @@ locales_absent: []
 
 locales_language_packs_absent: []
 
-locales_default:
-  lang: en_US.UTF-8
+locales_default: {}
