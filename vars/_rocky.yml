@@ -1,0 +1,6 @@
+# vars file for Rocky Linux
+---
+locales_gen_file: /etc/locale.conf
+locales_dependencies:
+  - glibc-langpack-en
+  - glibc-locale-source

@@ -1,0 +1,40 @@
+# RedHat/Rocky specific tasks
+---
+- name: install dependencies (RedHat/Rocky)
+  ansible.builtin.dnf:
+    name: "{{ locales_dependencies }}"
+    state: present
+  tags:
+    - configuration
+    - locales
+    - locales-install
+
+- name: install (specified) language packs
+  ansible.builtin.dnf:
+    name: "{{ locales_language_packs_present | map('regex_replace', '^language-pack-(.*)$', 'glibc-langpack-\\1') | list }}"
+    state: present
+  when: locales_language_packs_present | length > 0
+  tags:
+    - configuration
+    - locales
+    - locales-language-packs-present
+
+- name: remove (specified) language packs
+  ansible.builtin.dnf:
+    name: "{{ locales_language_packs_absent | map('regex_replace', '^language-pack-(.*)$', 'glibc-langpack-\\1') | list }}"
+    state: absent
+  when: locales_language_packs_absent | length > 0
+  tags:
+    - configuration
+    - locales
+    - locales-language-packs-absent
+
+- name: set default locale
+  ansible.builtin.command:
+    cmd: localectl set-locale LANG={{ locales_present[0] }}
+  when: locales_present | length > 0
+  changed_when: false
+  tags:
+    - configuration
+    - locales
+    - locales-default
