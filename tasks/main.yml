@@ -3,8 +3,8 @@
 - name: include variables
   ansible.builtin.include_vars: "{{ item }}"
   with_first_found:
-    - "_{{ ansible_distribution_release }}.yml"
-    - "_{{ ansible_distribution | lower }}.yml"
+    - "_{{ ansible_facts['distribution_release'] }}.yml"
+    - "_{{ ansible_facts['distribution'] | lower }}.yml"
     - _default.yml
   tags:
     - configuration
@@ -26,7 +26,7 @@
   ansible.builtin.apt:
     name: "{{ locales_language_packs_present }}"
     state: "{{ apt_install_state | default('latest') }}"
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts['distribution'] == 'Ubuntu'
   notify: update locales
   tags:
     - configuration
@@ -37,7 +37,7 @@
   ansible.builtin.apt:
     name: "{{ locales_language_packs_absent }}"
     state: absent
-  when: ansible_distribution == 'Ubuntu'
+  when: ansible_facts['distribution'] == 'Ubuntu'
   notify: update locales
   tags:
     - configuration
